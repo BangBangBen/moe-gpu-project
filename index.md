@@ -15,7 +15,7 @@ and evaluate how workload imbalance affects performance.
 
 - [Project Proposal](./docs/project_proposal/moe_proposal.pdf)
 - [v0 Experiment Report](./docs/v0/report.md)
-- Milestone Report — coming soon
+- [Milestone Report](./docs/project_milestone.md)
 - Final Report — coming soon
 - Poster — coming soon
 
@@ -24,6 +24,6 @@ and evaluate how workload imbalance affects performance.
 - **Nov. 9–15:** Set up the benchmark and reference implementation;
   implement and validate the per-expert baseline.
 - **Nov. 16–22:** Profile the baseline and develop grouped execution.
-- **Nov. 23–29:** Submit the milestone report and work on tile-based scheduling.
-- **Nov. 30–Dec. 6:** Run experiments and analyze performance bottlenecks.
-- **Dec. 7–11:** Finalize the report and prepare the poster.
+- **Nov. 23–29:** Benchmark V1, reproduce measurements on GHC, and implement V2 grouped execution.
+- **Nov. 30–Dec. 6:** Benchmark V2 and implement V3 tile-based scheduling.
+- **Dec. 7–11:** Benchmark V3, finalize the report, and prepare the poster.
