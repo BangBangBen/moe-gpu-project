@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.18)
+project(moe_baselines LANGUAGES CXX)
+find_package(CUDAToolkit REQUIRED)
+add_executable(moe_v1 src/v1/main.cpp src/v1/baseline.cpp)
+target_compile_features(moe_v1 PRIVATE cxx_std_17)
+target_compile_options(moe_v1 PRIVATE -Wall -Wextra -Wpedantic)
+target_link_libraries(moe_v1 PRIVATE CUDA::cublas CUDA::cudart)

@@ -1,1 +1,5 @@
 docs_local/
+build/
+artifacts/
+__pycache__/
+.pytest_cache/
