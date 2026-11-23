@@ -2,8 +2,8 @@
 
 Post-routing Mixture-of-Experts GEMM baselines for CMU 15-618.
 The current versions implement FP32 `Y_e = X_e @ W_e` with packed top-1
-expert inputs. This stage checks correctness only: no performance tests,
-timing results, or profiling are included.
+expert inputs. See the [v0 experiment report](docs/v0/report.md) for the
+configuration, results, and reproduction commands.
 
 ## Environment
 
@@ -23,7 +23,7 @@ can run the code if it already satisfies these dependencies; creating a fresh
 environment is preferable when reproducing the declared setup.
 
 `environment.yml` pins Python 3.11, PyTorch 2.5.1 and its CUDA runtime 12.4,
-and declares NumPy 2.0 and pytest 8. It is a direct-dependency specification,
+and declares NumPy 2.0, pytest 8, and Matplotlib 3.10. It is a direct-dependency specification,
 not a complete transitive lockfile. PyTorch and NumPy provide the runtime;
 pytest is used for correctness tests.
 

@@ -6,6 +6,13 @@ import torch
 from .format import Workload
 
 
+def run_experts(x, w, y, offsets) -> None:
+    """Write each active expert's GEMM into its slice of a preallocated output."""
+    for expert, (start, end) in enumerate(zip(offsets[:-1], offsets[1:])):
+        if start != end:
+            torch.mm(x[start:end], w[expert], out=y[start:end])
+
+
 def reference(workload: Workload, device="cuda") -> np.ndarray:
     """Compute each expert's FP32 GEMM and return packed Y[T,N] on the CPU."""
     workload.validate()
@@ -17,10 +24,7 @@ def reference(workload: Workload, device="cuda") -> np.ndarray:
             x = torch.tensor(workload.x, device=device)
             w = torch.tensor(workload.w, device=device)
             y = torch.empty((x.shape[0], w.shape[2]), dtype=torch.float32, device=device)
-            for expert, (start, end) in enumerate(zip(workload.offsets[:-1], workload.offsets[1:])):
-                # Write directly into the rows owned by this expert.
-                if start != end:
-                    torch.mm(x[start:end], w[expert], out=y[start:end])
+            run_experts(x, w, y, workload.offsets)
             return y.cpu().numpy()
     finally:
         torch.backends.cuda.matmul.allow_tf32 = previous

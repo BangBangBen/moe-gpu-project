@@ -4,7 +4,7 @@
 
 v0 defines the numerical contract for a top-1, post-routing MoE expert
 GEMM. It computes `Y_e = X_e @ W_e` in FP32, without bias or activation.
-It is a correctness reference, not a performance measurement. Routing,
+The correctness reference and benchmark share the expert GEMM loop. Routing,
 packing, and restoring the original token order are outside computation.
 
 `X[T,K]`, `W[E,K,N]`, and `Y[T,N]` are contiguous row-major FP32 arrays.
@@ -50,6 +50,7 @@ executable, reloads outputs, and checks `atol=1e-4, rtol=1e-4`. It also
 compares both outputs against the CPU FP64 reference and reports maximum
 absolute error. Tests cover uneven counts, empty experts, zero tokens,
 single active experts, T<E, rectangular and non-aligned GEMMs, and malformed
-files. Non-finite outputs fail validation. No latency, throughput, warmup
-benchmark, or profiler is included. Full MLPs, top-k routing and unpermutation
-are deferred.
+files. Non-finite outputs fail validation. The CUDA benchmark measures the
+expert loop with resident GPU buffers. The [v0 experiment report](report.md)
+includes the configuration and results. Full MLPs, top-k routing
+and unpermutation are deferred.

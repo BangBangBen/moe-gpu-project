@@ -14,6 +14,7 @@ and evaluate how workload imbalance affects performance.
 ## Project Documents
 
 - [Project Proposal](./docs/project_proposal/moe_proposal.pdf)
+- [v0 Experiment Report](./docs/v0/report.md)
 - Milestone Report — coming soon
 - Final Report — coming soon
 - Poster — coming soon
