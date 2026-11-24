@@ -21,9 +21,20 @@ and evaluate how workload imbalance affects performance.
 
 ## Schedule and Progress
 
-- **Nov. 9–15:** Set up the benchmark and reference implementation;
-  implement and validate the per-expert baseline.
-- **Nov. 16–22:** Profile the baseline and develop grouped execution.
-- **Nov. 23–29:** Benchmark V1, reproduce measurements on GHC, and implement V2 grouped execution.
-- **Nov. 30–Dec. 6:** Benchmark V2 and implement V3 tile-based scheduling.
-- **Dec. 7–11:** Benchmark V3, finalize the report, and prepare the poster.
+Completed: environment and benchmark setup, V0 implementation and measurements, and V1 implementation. See the [milestone report](./docs/project_milestone.md) for details.
+
+- Nov. 23–25
+   - V1 benchmark and measurements; record the baseline results. (Ben)
+   - Move the benchmark to GHC machines and check reproducibility. (Bruce)
+- Nov. 26–29
+   - Implement and validate V2: grouped execution using C++ / cuBLAS. (Bruce)
+- Nov. 30–Dec. 2
+   - Benchmark and profile V2. (Bruce)
+   - Begin V3: tile-based scheduling using CUTLASS with a custom scheduler. (Ben)
+- Dec. 3–6
+   - Continue V3 implementation and correctness validation. (Ben)
+- Dec. 7–9
+   - Benchmark and profile V3. (Ben)
+   - Analyze and organize measurements; prepare the final report and poster. (Bruce)
+- Dec. 10–11
+   - Submit the final report by Dec. 10, 11:59pm; prepare for the Dec. 11 poster session. (together)
